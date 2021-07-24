@@ -1,30 +1,52 @@
-{%load bootstrap3%}
-{%load static%}
+{% load bootstrap3 %}
+{% load static%}
+{% load cloudinary %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {%if title%}
-    <title>Neighbor{{title}}</title>
-    {%else%}
-    <title>Neighbor</title>
-    {%endif%}
+    <meta charset="utf-8">
 
-    {%block style%}
-        {%bootstrap_css%}
-        <link rel="stylesheet" href="{%static 'css/base.css'%}"
-    {%endblock%}
+    {% if title %}
+    <title>Instaclone - {{title}}</title>
+    {% else %}
+    <title> Instaclone</title>
+    {% endif %}
 
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+
+    <style>
+        .navbar {
+            background-color: black;
+            border: none;
+            border-radius: 0%;
+        }
+
+        .nav-item>.nav-link {
+            color: red;
+        }
+    </style>
 </head>
+<style>
+.navbar{
+    background-color: rgb(5, 5, 48);
+}
+</style>
+
 <body>
-    {%block content%}
+    {%include 'navbar.html' %}
+
+    {% block content %}
+
     {%endblock%}
 
     {% block scripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     {% bootstrap_javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
     {% endblock %}
 </body>
-</html>
+
+</html
