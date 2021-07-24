@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'neighbourapp',
     'bootstrap3',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
