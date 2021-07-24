@@ -13,7 +13,10 @@ class Post(models.Model):
     def publication_date(self):
         return self.pub_date.strftime('%b %e, %Y')
 
-class         
+class Announce(models.Model):
+    title = models.CharField(max_length=255)
+    user=models.ForeignKey(User,on_delete = models.CASCADE)
+    subject = models.CharField(max_length=255)
 
 class NeighbourHood(models.Model):
     name = models.CharField(max_length=255)

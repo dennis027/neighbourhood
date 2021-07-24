@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Post
-from .forms import RegistrationForm
+from .models import *
+from .forms import NewPost, RegistrationForm
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -61,3 +61,15 @@ def create(request):
     else:
         return render(request, 'posts/create_post.html')    
 
+def post(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewPost(request.POST, request.FILES)
+        if form.is_valid():
+            announce = form.save(commit=False)
+            announce.user = current_user
+            announce.save()
+        return redirect('index')
+    else:
+        form = NewPost()
+    return render(request, 'announcement.html', {"form": form})    
