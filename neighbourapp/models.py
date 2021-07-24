@@ -12,10 +12,8 @@ class Post(models.Model):
     def publication_date(self):
         return self.pub_date.strftime('%b %e, %Y')
 
-class Profile(models.Model):
+class User(models.Model):
     name = models.CharField(max_length=255)
-    
-class Business(models.Model):
-    pass
-
-class 
+    id = models.IntegerField()
+    neighborhood_id = models.ForeignKey()
+    email = models.EmailField()
