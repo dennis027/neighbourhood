@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'neighbourapp',
     'bootstrap3',
     'tinymce',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
