@@ -25,7 +25,8 @@ def profile(request):
     return render(request, 'index.html', {'posts':posts})
 
 
-
+def emergency(request):
+    return render(request, 'emergency.html')
 
 def register(request):
     if request.method=="POST":

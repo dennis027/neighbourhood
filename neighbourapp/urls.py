@@ -9,6 +9,7 @@ urlpatterns=[
     url('register/',views.register, name='registration'),
     url('login/', auth_views.LoginView.as_view(), name='login'),
     url(r'profile/', views.profile, name='profile'),
+    url(r'emergency/', views.emergency, name='emergency'),
  
     url(r'^post/', views.post, name="post"),
   
