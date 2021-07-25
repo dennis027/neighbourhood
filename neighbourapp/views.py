@@ -77,8 +77,8 @@ def post(request):
 @login_required(login_url='/accounts/login/')
 def profile(request):
     if request.method == 'POST':
-        p_form = ProfileUpdateForm(instance=request.user, data=request.POST)
-        u_form = UserUpdateForm(instance=request.user.profile, data=request.POST, files=request.FILES)
+        p_form = ProfileUpdateForm(request.POST,request.FILES,instance=request.user)
+        u_form = UserUpdateForm(request.POST,instance=request.user)
 
         if p_form.is_valid() and u_form.is_valid():
             u_form.save()
@@ -87,7 +87,7 @@ def profile(request):
             return redirect('profile')
     else:
         p_form = ProfileUpdateForm(instance=request.user)
-        u_form = UserUpdateForm(instance=request.user.profile)
+        u_form = UserUpdateForm(instance=request.user)
 
     context={'p_form': p_form, 'u_form': u_form}
     return render(request, 'profile.html',context )
