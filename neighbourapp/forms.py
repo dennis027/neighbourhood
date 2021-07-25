@@ -1,4 +1,4 @@
-from neighbourapp.models import  Post
+from neighbourapp.models import  Post,User,Profile
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -24,3 +24,15 @@ class NewPost(forms.ModelForm):
         model=Post
         exclude = []
         Fields = ['title','user','subject']
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model=User
+        exclude = ['neighborhood_id']
+        fields=['username','email']    
+
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model=Profile
+        fields=['pic','bio']          
