@@ -10,7 +10,7 @@ urlpatterns=[
     url('login/', auth_views.LoginView.as_view(), name='login'),
     url(r'profile/', views.profile, name='profile'),
     url(r'emergency/', views.emergency, name='emergency'),
- 
+    url(r'neighbor/', views.neighbor, name='neighbor'),
     url(r'^post/', views.post, name="post"),
   
 ]

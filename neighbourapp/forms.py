@@ -1,4 +1,4 @@
-from neighbourapp.models import  Post,User,Profile
+from neighbourapp.models import  Post,User,Profile,NeighbourHood
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -36,3 +36,9 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model=Profile
         fields=['pic','bio']          
+
+
+class NewNeighborForm(forms.ModelForm):
+    class Meta:
+        model= NeighbourHood
+        fields=['name','location','occupation_count']        

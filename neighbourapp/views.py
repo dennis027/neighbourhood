@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import *
-from .forms import NewPost, ProfileUpdateForm, RegistrationForm
+from .forms import NewNeighborForm, NewPost, ProfileUpdateForm, RegistrationForm
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -24,9 +24,24 @@ def profile(request):
     posts = Post.objects.all()
     return render(request, 'index.html', {'posts':posts})
 
-
+@login_required(login_url='/accounts/login/') 
 def emergency(request):
     return render(request, 'emergency.html')
+
+@login_required(login_url='/accounts/login/') 
+def neighbor(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewNeighborForm(request.POST, request.FILES)
+        if form.is_valid():
+            neighbor = form.save(commit=False)
+            neighbor.user = current_user
+            neighbor.save()
+        return redirect('index')
+    else:
+        form = NewNeighborForm()
+    return render(request, 'neighbor.html',{'form':form})    
+
 
 def register(request):
     if request.method=="POST":
