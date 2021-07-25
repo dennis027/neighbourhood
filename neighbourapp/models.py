@@ -22,6 +22,7 @@ class User(models.Model):
     name = models.CharField(max_length=255)
     neighborhood_id = models.ForeignKey(NeighbourHood,on_delete= models.CASCADE)
     email = models.EmailField()
+    user_image = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.name
