@@ -14,7 +14,6 @@ class NeighbourHood(models.Model):
     name = models.CharField(max_length=255)
     login = models.CharField(max_length=200)
     occupation_count = models.IntegerField(default=0)
-    
     admin = models.ForeignKey
     def __str__(self):
         return self.name
