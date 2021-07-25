@@ -2,23 +2,18 @@
 
 {% block content %}
 <h1>Neighbours</h1>
-<a class="btn btn-primary" href="{% url 'create' %}">New Post</a>
+<a class="btn btn-primary" href="{% url 'post' %}">New Post</a>
 <br>
 <br>
 
-{% for post in posts.all %}
-{% if user.is_authenticated %}
+{% for post in  posts.all %}
 
-<table>
-    <tr>
-        
-        <td style="padding-right: 20px;"><a href="{{ post.url }}">{{ post.title }}</a><br>{{ post.publication_date }} by
-            <a href="/">{{ post.author.username }}</a></td>
-    </tr>
-</table>
+
+<p>{{ post.title}}</p>
+<p>{{post.user}}</p>
+<p></p>
 
 
 
-{% endif %}
 {% endfor %}
 {% endblock %}

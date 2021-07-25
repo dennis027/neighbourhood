@@ -43,25 +43,10 @@ def register(request):
 
 
 @login_required
-def create(request):
-    if request.method == 'POST':
-        if request.POST['title'] and request.POST['url']:
-            post = Post()
-            post.title = request.POST['title']
-            if request.POST['url'].startswith('http://') or request.POST['url'].startswith('https://'):
-                post.url = request.POST['url']
-            else:
-                post.url = 'http://' + request.POST['url']
-            post.pub_date = datetime.datetime.utcnow().replace(tzinfo=utc)
-            post.author = request.user
-            post.save()
-            return redirect('index')
-        else:
-            return render(request, 'posts/create_post.html', {'error': 'Error: You need a title and URL to post!'})
-    else:
-        return render(request, 'posts/create_post.html')    
+ 
 
 def post(request):
+  
     current_user = request.user
     if request.method == 'POST':
         form = NewPost(request.POST, request.FILES)
@@ -72,4 +57,4 @@ def post(request):
         return redirect('index')
     else:
         form = NewPost()
-    return render(request, 'announcement.html', {"form": form})    
+    return render(request, 'announce.html', {"form": form})    
