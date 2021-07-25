@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Neighbours</h1>
+<a class="dropdown-item text-center" href="{% url 'profile' %}">Profile</a>
 <a class="btn btn-primary" href="{% url 'post' %}">New Post</a>
 <br>
 <br>
@@ -11,6 +12,7 @@
 
 <p>{{ post.title}}</p>
 <p>{{post.user}}</p>
+<p>{{post.subject}}</p>
 <p></p>
 
 

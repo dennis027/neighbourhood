@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class Post(models.Model):
     title = models.CharField(max_length=255)
     user=models.ForeignKey(User,on_delete = models.CASCADE)
-    subject = models.CharField(max_length=255)
+    subject = models.CharField(max_length=255,default="")
 
 class NeighbourHood(models.Model):
     name = models.CharField(max_length=255)

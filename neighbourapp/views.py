@@ -13,14 +13,14 @@ from django.utils.timezone import utc
 
 @login_required(login_url='/accounts/login/')
 def index(request):
-    posts = Post.objects.order_by('-votes_total')
+    posts = Post.objects.all()
     return render(request, 'index.html', {'posts':posts})
 
 @login_required(login_url='/accounts/login/') 
 def profile(request):
     
 
-    posts = Post.objects.order_by('-votes_total')
+    posts = Post.objects.all()
     return render(request, 'index.html', {'posts':posts})
 
 
@@ -58,3 +58,9 @@ def post(request):
     else:
         form = NewPost()
     return render(request, 'announce.html', {"form": form})    
+
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    current_user = request.user
+    # p = Project.objects.filter(user=current_user.id).all
+    return render(request, 'profile.html')    
