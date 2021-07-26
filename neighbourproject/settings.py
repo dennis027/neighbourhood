@@ -45,7 +45,6 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -144,9 +143,12 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = '/static/'
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
