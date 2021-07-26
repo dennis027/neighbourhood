@@ -75,4 +75,4 @@ Open the application on your browser `127.0.0.1:8000`.
 If you have any question or contributions, please email me at [machariad196@gmail.com]  
   
 ## License 
-(C) Dennis Kimani [LICENSE] ()
+This project is under the  [MIT](LICENSE) licence
