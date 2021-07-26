@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.contrib.auth import views 
 from django.urls import path
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'',include('neighbourapp.urls')),
     url('accounts/', include('django_registration.backends.activation.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
+
 ]

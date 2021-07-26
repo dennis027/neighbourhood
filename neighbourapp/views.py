@@ -10,7 +10,12 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.utils.timezone import utc
 from .forms import UserUpdateForm,ProfileUpdateForm
+from django.contrib.auth import logout
 
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
 
 @login_required(login_url='/accounts/login/')
 def index(request):
