@@ -1,3 +1,7 @@
+
+{%extends 'base.html'%}
+
+
 {% load bootstrap3 %} {% load static %}
 <!DOCTYPE html>
 <html>
@@ -15,13 +19,23 @@
 </head>
 
 <body>
+<br><br><br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <form  action="{%url 'post'%}" method="post" enctype="multipart/form-data">
+          {%csrf_token%}
+      
+          {% bootstrap_form form%}
+          <input type="submit" class="btn btn-success btn-lg" value="Post">
+        </form>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
 
-  <form  action="{%url 'post'%}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-
-    {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
-  </form>
+ 
 
    {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

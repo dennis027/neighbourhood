@@ -20,7 +20,8 @@ def logout_view(request):
 @login_required(login_url='/accounts/login/')
 def index(request):
     posts = Post.objects.all()
-    return render(request, 'index.html', {'posts':posts})
+    businesss= Business.objects.all()
+    return render(request, 'index.html', {'posts':posts,'businesss':businesss})
 
 @login_required(login_url='/accounts/login/') 
 def profile(request):
@@ -114,3 +115,7 @@ def profile(request):
     return render(request, 'profile.html',context )
 
     
+def business_location(request, location):
+    businesss = Business.filter_by_location(location)
+    print(businesss)
+    return render(request, 'location.html', {'location_images': businesss})    

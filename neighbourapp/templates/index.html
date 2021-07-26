@@ -3,11 +3,13 @@
 {% block content %}
 
 <h1>Neighbours</h1>
-<a class="dropdown-item text-center" href="{% url 'profile' %}">Profile</a>
-<a class="btn btn-primary" href="{% url 'post' %}">New Post</a>
-<a class="btn btn-danger" href="{% url 'emergency' %}">Emergency</a>
-<a class="btn btn-success" href="{% url 'neighbor' %}">neighbor</a>
 
+<a class="btn btn-danger" href="{% url 'emergency' %}">Emergency</a>
+
+{% for business in businesss %}
+                  <a class="btn btn-outline-info btn-sm" id="btn"
+                     href="/business/{{business.name}}">{{location.name}}</a><br>
+{%endfor%}
 <br>
 <br>
 

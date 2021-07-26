@@ -23,6 +23,29 @@ class NeighbourHood(models.Model):
     def __str__(self):
         return self.name
 
+    
+    def create(self):
+        self.save()
+
+    def delete_neighbour(self):
+        self.delete()
+
+    @classmethod
+    def find_neighborhood(cls, neighborhood_id):
+        neighborhood = cls.objects.get(id = neighborhood_id)
+        return neighborhood
+
+    @classmethod
+    def update_neighborhood(cls, neighborhood_id):
+        neighborhood  = cls.objects.filter(id=neighborhood_id).update()
+        return neighborhood
+
+    @classmethod
+    def update_count(cls, count):
+        neighborhood_count = cls.objects.filter(occupants_count=1).update(occupants_count=count)
+        return neighborhood_count
+    
+
 class User(models.Model):
     name = models.CharField(max_length=255)
     neighborhood_id = models.ForeignKey(NeighbourHood,on_delete= models.CASCADE)
@@ -42,6 +65,20 @@ class Business(models.Model):
     bussiness_email= models.EmailField()    
     def __str__(self):
         return self.name
+
+
+    def __str__(self):
+        return self.business_name
+
+    def save_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
+
+    @classmethod
+    def search_business(cls, search_term):
+        return cls.objects.filter(business_name__icontains=search_term).all()    
 
 
     

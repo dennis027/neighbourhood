@@ -12,6 +12,7 @@ urlpatterns=[
     url(r'emergency/', views.emergency, name='emergency'),
     url(r'neighbor/', views.neighbor, name='neighbor'),
     url(r'^post/', views.post, name="post"),
+    
     url(r'^logout/$', views.logout_view, name='index'), 
 ]
 if settings.DEBUG:
