@@ -118,4 +118,17 @@ def profile(request):
 def business_location(request, location):
     businesss = Business.filter_by_location(location)
     print(businesss)
-    return render(request, 'location.html', {'location_images': businesss})    
+    return render(request, 'location.html', {'location_images': businesss})  
+
+def search(request):
+    
+    if 'businesses' in request.GET and request.GET["businesses"]:
+        search_term = request.GET.get("businesses")
+        searched_businesses = Business.search_business(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"businesses": searched_businesses})
+
+    else:
+        message = "You haven't searched for any business"
+        return render(request, 'search.html',{"message":message})      
