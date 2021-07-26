@@ -24,7 +24,7 @@ class NeighbourHood(models.Model):
         return self.name
 
     
-    def create(self):
+    def save_neighbour(self):
         self.save()
 
     def delete_neighbour(self):
