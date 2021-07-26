@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 
 {% block content %}
-
+<div class='container'>
 <h1>Neighbours</h1>
 
 <a class="btn btn-danger" href="{% url 'emergency' %}">Emergency</a>
@@ -12,7 +12,7 @@
 {%endfor%}
 <br>
 <br>
-
+</div>
 {% for post in  posts.all %}
 
 <div class="container">

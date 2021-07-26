@@ -1,3 +1,4 @@
+
 {% load bootstrap3 %}
  {% load static %}
 <!DOCTYPE html>
@@ -6,12 +7,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <a class="navbar-brand" href="/">NeighbourHood</a>
   <title>New Announcement</title>
   {{form.media}}
 
-{% block styles %} {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/base.css' %}"> {% endblock %}
+{% block styles %} 
+{% bootstrap_css %}
+   
+
+{% endblock %}
 
 </head>
 
