@@ -99,14 +99,6 @@ WSGI_APPLICATION = 'neighbourproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'neighbor',
-#         'USER':'moringa',
-#         'PASSWORD':'Access'
-#     }
-# }
 
 
 # Password validation

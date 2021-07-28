@@ -4,7 +4,9 @@
 <div class='container'>
 <h1>Neighbours</h1>
 
+<a class="btn btn-primary" href="{% url 'post' %}">Announce to All</a>
 <a class="btn btn-danger" href="{% url 'emergency' %}">Emergency</a>
+
 
 {% for business in businesss %}
                   <a class="btn btn-outline-info btn-sm" id="btn"
